@@ -8,7 +8,7 @@ class IntervalsController < ApplicationController
 		max = 0
 		num = 0
                 CSV.foreach(file_path) do |row|
-			while(true)
+		
 				for i in num..(num+30)
                         		result += row[0].to_f
 				end
@@ -22,7 +22,7 @@ class IntervalsController < ApplicationController
 				end
 				num += 1
 				
-			end
+			
                 end
                 max = max.ceil
                 render plain: "%.2f"%max
