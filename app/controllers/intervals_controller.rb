@@ -14,15 +14,15 @@ class IntervalsController < ApplicationController
 				result += row[0].to_f
 			end
 			if num == 0
-				max = result
+				max = result.to_f
 			else
 				if max < result
-					max = result
+					max = result.to_f
 				end
 			end
 			num += 1
                 end
-                max = max.ceil
+                max = max.to_f.ceil
                 render plain: "%.2f"%max
         end
 
