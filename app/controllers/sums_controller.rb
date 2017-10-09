@@ -1,6 +1,6 @@
 require 'csv'
 class SumsController < ApplicationController
-	protect_from_forgery except: :file
+	protect_from_forgery except: :create
 	def index
 
 	end
