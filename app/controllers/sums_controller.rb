@@ -11,7 +11,8 @@ class SumsController < ApplicationController
 		CSV.foreach(file_path) do |row|
 			result += row[0].to_f
 		end
-		#result.ceil!
+		result.to_f!
+		result.ceil!
 		render plain: result
 	end
 end
