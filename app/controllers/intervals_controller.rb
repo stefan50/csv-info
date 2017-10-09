@@ -22,7 +22,7 @@ class IntervalsController < ApplicationController
 			end
 			num += 1
                 end
-                max = max.to_f.ceil
+                max = max.ceil
                 render plain: "%.2f"%max
         end
 
