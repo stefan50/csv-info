@@ -5,6 +5,7 @@ class IntervalsController < ApplicationController
                 file = params[:file]
                 file_path = file.path
                 result = 0
+		max = 0
 		num = 0
                 CSV.foreach(file_path) do |row|
 			while(true)
@@ -12,11 +13,11 @@ class IntervalsController < ApplicationController
                         		result += row[0].to_f
 				end
 				if num == 0
-					max = result
+					max = result.to_f
 				end
 				else
 					if max < result
-						max = result
+						max = result.to_f
 					end
 				end
 				num += 1
