@@ -12,6 +12,6 @@ class SumsController < ApplicationController
 			result += row[0].to_f
 		end
 		result = result.ceil
-		render plain: result
+		render plain: "%.2f"%result 
 	end
 end
