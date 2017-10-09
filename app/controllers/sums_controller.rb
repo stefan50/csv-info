@@ -4,7 +4,7 @@ class SumsController < ApplicationController
 
 	end
 	def create
-		skip_before_action :verify_authenticity_token
+		protect_from_forgery except: :file
 		file = params[:file]
 		file_path = file.path
 		result = 0
