@@ -5,9 +5,8 @@ class IntervalsController < ApplicationController
                 file_path = file.path
 		max = 0
 		num = 0
-		num_of_rows = 0
 		CSV.foreach(file_path) do |row|
-			num_of_rows += 1 
+			num_of_rows += 1
 		end
 		while (num+30)<=num_of_rows
 			result = 0
@@ -21,6 +20,7 @@ class IntervalsController < ApplicationController
 					max = result
 				end
 			end
+			num += 1
                 end
                 max = max.ceil
                 render plain: "%.2f"%max
