@@ -1,10 +1,10 @@
 require 'csv'
 class SumsController < ApplicationController
+	protect_from_forgery except: :file
 	def index
 
 	end
 	def create
-		protect_from_forgery except: :file
 		file = params[:file]
 		file_path = file.path
 		result = 0
