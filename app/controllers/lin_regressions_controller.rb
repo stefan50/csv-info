@@ -1,5 +1,5 @@
 require 'csv'
-require 'linear-regression/linear'
+require 'linear'
 class LinRegressionsController < ApplicationController
 	protect_from_forgery except: :create	
 	def create
