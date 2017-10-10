@@ -1,15 +1,19 @@
 require 'csv'
-require 'regression.rb'
+require 'linear-regression/linear'
 class LinRegressionsController < ApplicationController
 	protect_from_forgery except: :create	
 	def create
 		file = params[:file]
 		file_path = file.path
+		xs = []
+		ys = []
 		result = 0
-		sth = SimpleLinearRegression.new(2,3)
-		CSV.foreach(file_path) do |row|		
+		i = 0
+		CSV.foreach(file_path).with_index(0) do |row,which_row|
+			xs[i] = which_row
+			ys[i] = row[0].to_f 		
 		end
-		result = result.ceil
-		render plain: sth 
+		result = Regression::Linear.new xs, ys
+		render plain: "%.6f,%.6f"% [result.slope, result.intercept] 
 	end
 end
