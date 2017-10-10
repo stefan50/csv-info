@@ -29,7 +29,7 @@ class IntervalsController < ApplicationController
                 	end
 		=end
                 #max = max.ceil
-                render plain: num_of_rows
+                render plain: "%d"%num_of_rows
         end
 
 end
