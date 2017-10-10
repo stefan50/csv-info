@@ -6,10 +6,10 @@ class LinRegressionsController < ApplicationController
 		file = params[:file]
 		file_path = file.path
 		result = 0
-		CSV.foreach(file_path) do |row|
-			result += row[0].to_f		
+		sth = SimpleLinearRegression.new(2,3)
+		CSV.foreach(file_path) do |row|		
 		end
 		result = result.ceil
-		render plain: "%.2f"%result 
+		render plain: sth 
 	end
 end
