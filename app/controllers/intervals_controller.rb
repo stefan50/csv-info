@@ -1,3 +1,4 @@
+require 'csv'
 class IntervalsController < ApplicationController
 	protect_from_forgery except: :create
         def create
