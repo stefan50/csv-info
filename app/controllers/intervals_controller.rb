@@ -7,24 +7,28 @@ class IntervalsController < ApplicationController
 		max = 0
 		num = 0
 		num_of_rows = 0
-		CSV.foreach(file_path) do |row|
-			num_of_rows += 1
+		max = 0
+	arr = Array.new(30)
+	CSV.foreach(file) do |row|
+		num_of_rows += 1
+	end
+	until (num+30) > num_of_rows
+		result = 0
+               	CSV.foreach(file).with_index(0) do |row,which_row|
+			arr[which_row] = row[0].to_f
 		end
-		until (num+30)==num_of_rows
-			result = 0
-               		CSV.foreach(file_path).with_index(0) do |row,which_row|
-				if num+29 == which_row
-					break
-				end
-				result += row[0].to_f
+		arr.drop(num).each.with_index(0) do |a,num_row|
+			puts "arr = " + a.to_s
+			if num+29 == num_row
+				break
 			end
-			if max < result
-				max = result.to_f
-			end
-			num += 1
-               	end
-                max = max.ceil
-                render plain: "%.2f"%max
+			result += a
+		end
+		if max < result
+			max = result.to_f
+		end
+		num += 1
         end
-
+	max = max.ceil
+        render plain: "%.2f"%max
 end
