@@ -9,7 +9,7 @@ class IntervalsController < ApplicationController
 		num_of_rows = 0
 		max = 0
 		arr = Array.new(30)
-		CSV.foreach(file) do |row|
+		CSV.foreach(file_path) do |row|
 			num_of_rows += 1
 		end
 		until (num+30) > num_of_rows
