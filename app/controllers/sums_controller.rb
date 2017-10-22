@@ -8,7 +8,7 @@ class SumsController < ApplicationController
 		file = params[:file]
 		file_path = file.path
 		result = 0
-		CSV.foreach(file_path) do |row|
+		CSV.foreach(file_path,headers: false) do |row|
 			result += row[0].to_f
 		end
 		result = result.ceil
